@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{%block title%}Konfirmasi Pesanan {%endblock%}
+
+{%block content%}
+
+<h2>Pesanan telah selesai! Rincian Pesanan. </h2>
+
+<h3>Pesanan ID: #{{order.id}}</h3>
+<ul>
+    {%for item in order.items.all%}
+    <li>
+        <strong>{{item.quantity}} x {{item.product.name}}</strong>
+        <br>
+        <span>{{item.price}}</span>
+
+    </li>
+    {%endfor%}
+    <ul>
+
+        <p>Total" Rp {{order.get_total_cost}}</p>
+{%endblock%}

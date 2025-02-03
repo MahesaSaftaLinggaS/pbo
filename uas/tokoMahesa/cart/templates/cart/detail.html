@@ -20,13 +20,15 @@
         <p class="text-indigo-600">RP {{item.product.price}}</p>
         <p class="text-gray-600">Jumlah : {{item.quantity}}</p>
 
-<div class="flex-shrink">
-   <form action="{%url 'cart:remove_item' item.id %}"  method="post">
-    {%csrf_token%}
-    <button type="submit" class="bg-red-600 text-white px-4 py-1 text-xs rounded">X</button>
-   </form>
-</div>
-        </div>
+        <div class="flex-shrink">
+            <form action="{% url 'cart:remove_item' item.id %}" method="post">
+               {% csrf_token %}
+               <button type="submit" class="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 text-sm font-medium rounded-lg shadow-md transition-transform duration-200 transform hover:scale-105">
+                  🗑 Hapus Pesanan
+               </button>
+            </form>
+         </div>
+                 </div>
     </li>
     {%endfor%}
 </ul>
